@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Logo</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    body {
+      height: 100%;
+      width: 100%;
+      display: flex;
+    }
+
+    .main {
+      border-radius: 10px;
+      border: 10px solid #FFF;
+      width: 740px;
+      height: 740px;
+      margin: 20px;
+    }
+
+    .bg {
+      height: 800px;
+      width: 800px;
+      background-image: linear-gradient(0deg, rgba(29, 114, 164, 1), rgba(45, 196, 203, 1));
+    }
+
+    .wall-left {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: RGBA(103, 222, 200, 1);
+      transform: skew(-15deg, -15deg) rotate(-15deg);
+      margin-left: 248px;
+      margin-top: 122px;
+    }
+
+    .wall-right {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: RGBA(116, 247, 220, 1);
+      transform: skew(15deg, 15deg) rotate(15deg);
+      margin-left: 402px;
+      margin-top: 122px;
+    }
+
+    .floor {
+      width: 150px;
+      height: 150px;
+      background: RGBA(45, 196, 203, 1);
+      transform: rotate(45deg);
+    }
+
+    .floor-1 {
+      position: absolute;
+      transform: scale(1.5, 0.75);
+      margin-left: 325px;
+      margin-top: 230px;
+    }
+
+    .floor-2 {
+      position: absolute;
+      transform: scale(1.5, 0.75);
+      margin-left: 170px;
+      margin-top: 335px;
+    }
+
+    .floor-3 {
+      position: absolute;
+      transform: scale(1.5, 0.75);
+      margin-left: 485px;
+      margin-top: 335px;
+    }
+
+    .h-1 {
+      position: absolute;
+      background: RGBA(128, 228, 252, 1);
+      width: 80px;
+      height: 100px;
+      transform: skew(15deg, 15deg) rotate(15deg);
+      margin-left: 0px;
+    }
+
+    .h-2 {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 0px solid transparent;
+      border-right: 43px solid transparent;
+      border-bottom: 43px solid RGBA(128, 228, 252, 1);
+      border-left: 43px solid transparent;
+      transform: skew(15deg, 15deg) rotate(15deg);
+      margin-left: 0px;
+      margin-top: -31px;
+    }
+
+    .h-3 {
+      position: absolute;
+      background: RGBA(255, 255, 255, 1);
+      width: 79px;
+      height: 100px;
+      transform: skew(-15deg, -15deg) rotate(-15deg);
+      margin-left: 84px;
+    }
+
+    .h-41 {
+      position: absolute;
+      background: RGBA(116, 247, 220, 1);
+      width: 110px;
+      height: 59px;
+      transform: skew(10deg, 10deg) rotate(-30deg);
+      margin-left: 50px;
+      margin-top: -50px;
+    }
+
+    .h-42 {
+      position: absolute;
+      background: RGBA(29, 114, 164, 1);
+      width: 110px;
+      height: 60px;
+      transform: skew(10deg, 10deg) rotate(-30deg);
+      margin-left: 50px;
+      margin-top: -50px;
+    }
+
+    .h-43 {
+      position: absolute;
+      background: RGBA(45, 196, 203, 1);
+      width: 110px;
+      height: 60px;
+      transform: skew(10deg, 10deg) rotate(-30deg);
+      margin-left: 50px;
+      margin-top: -50px;
+    }
+
+    .h-51 {
+      position: absolute;
+      background: RGBA(116, 247, 220, 1);
+      width: 49px;
+      height: 3px;
+      transform: rotate(-20deg);
+      margin-left: -4px;
+      margin-top: -22px;
+    }
+
+    .h-52 {
+      position: absolute;
+      background: RGBA(29, 114, 164, 1);
+      width: 49px;
+      height: 3px;
+      transform: rotate(-20deg);
+      margin-left: -4px;
+      margin-top: -22px;
+    }
+
+    .h-53 {
+      position: absolute;
+      background: RGBA(45, 196, 203, 1);
+      width: 49px;
+      height: 3px;
+      transform: rotate(-20deg);
+      margin-left: -4px;
+      margin-top: -22px;
+    }
+
+    .h-6 {
+      position: absolute;
+      background: RGBA(45, 196, 203, 1);
+      width: 25px;
+      height: 62px;
+      transform: skew(-15deg, -15deg) rotate(-15deg);
+      margin-left: 125px;
+      margin-top: 30px;
+    }
+
+
+    .b-1 {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: RGBA(255, 255, 255, 1);
+      border-radius: 50%;
+      margin-left: 0px;
+      margin-top: -5px;
+    }
+
+    .b-2 {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: RGBA(255, 255, 255, 1);
+      border-radius: 50%;
+      margin-left: 10px;
+      margin-top: -5px;
+    }
+
+    .bear {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: RGBA(255, 255, 255, 1);
+      border-radius: 50%;
+      margin-left: 33px;
+      transform: skew(0deg, 15deg);
+    }
+
+    .c-1 {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 0px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 10px solid RGBA(255, 255, 255, 1);
+      border-left: 4px solid transparent;
+      transform: rotate(-20deg);
+      margin-left: -1px;
+      margin-top: -5px;
+    }
+
+    .c-2 {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 0px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 10px solid RGBA(255, 255, 255, 1);
+      border-left: 4px solid transparent;
+      transform: rotate(20deg);
+      margin-left: 12px;
+      margin-top: -5px;
+    }
+
+    .cat {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: RGBA(255, 255, 255, 1);
+      border-radius: 50%;
+      margin-left: 33px;
+      transform: skew(0deg, 15deg);
+    }
+
+    .r-1 {
+      position: absolute;
+      width: 8px;
+      height: 18px;
+      background: RGBA(255, 255, 255, 1);
+      border-radius: 50%;
+      margin-left: 0px;
+      margin-top: -13px;
+    }
+
+    .r-2 {
+      position: absolute;
+      width: 8px;
+      height: 18px;
+      background: RGBA(255, 255, 255, 1);
+      border-radius: 50%;
+      margin-left: 10px;
+      margin-top: -13px;
+    }
+
+    .rabbit {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: RGBA(255, 255, 255, 1);
+      border-radius: 50%;
+      margin-left: 33px;
+      transform: skew(0deg, 15deg);
+    }
+
+    .house1 {
+      position: absolute;
+      margin-left: 155px;
+      margin-top: 320px;
+    }
+
+    .house2 {
+      position: absolute;
+      margin-left: 330px;
+      margin-top: 230px;
+    }
+
+    .house3 {
+      position: absolute;
+      margin-left: 500px;
+      margin-top: 320px;
+    }
+
+    .txt1 {
+      position: absolute;
+      margin-left: 200px;
+      margin-top: 500px;
+      font-size: 100px;
+      font-family: '微软雅黑';
+      font-weight: bolder;
+      color: RGBA(116, 247, 220, 1);
+      text-shadow: 2px 2px 2px #000;
+      text-shadow: -2px -2px 2px #000;
+    }
+
+    .txt2 {
+      position: absolute;
+      margin-left: 330px;
+      margin-top: 620px;
+      font-size: 80px;
+      font-family: '微软雅黑';
+      font-weight: bolder;
+      color: RGBA(116, 247, 220, 1);
+      text-shadow: 2px 2px 2px #000;
+      text-shadow: -2px -2px 2px #000;
+    }
+
+    .moon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 15px 15px 0 0 #FFF;
+      margin-left: 580px;
+      margin-top: 20px;
+    }
+
+    .jw {
+      height: 100px;
+      width: 100px;
+      background: url('jw.png') center/100% no-repeat;
+      margin-left: 10px;
+      position: absolute;
+      margin-top: 650px;
+    }
+
+    .jd {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      background: url('jd.png') center/100% no-repeat;
+      margin-left: 635px;
+      margin-top: 645px;
+    }
+
+    .logo {
+      height: 800px;
+      width: 800px;
+      background: url('logo.png') center/100% no-repeat;
+      margin-left: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="bg">
+    <div class="main">
+      <div class="moon"></div>
+      <div class="floor-1">
+        <div class="floor"></div>
+      </div>
+      <div class="floor-2">
+        <div class="floor"></div>
+      </div>
+      <div class="floor-3">
+        <div class="floor"></div>
+      </div>
+      <div class="wall-left"></div>
+      <div class="wall-right"></div>
+      <div class="house1">
+        <div class="h-1"></div>
+        <div class="h-2"></div>
+        <div class="h-3"></div>
+        <div class="h-41"></div>
+        <div class="h-51"></div>
+        <div class="h-6"></div>
+        <div class="bear">
+          <div class="b-1"></div>
+          <div class="b-2"></div>
+        </div>
+      </div>
+      <div class="house2">
+        <div class="h-1"></div>
+        <div class="h-2"></div>
+        <div class="h-3"></div>
+        <div class="h-42"></div>
+        <div class="h-52"></div>
+        <div class="h-6"></div>
+        <div class="cat">
+          <div class="c-1"></div>
+          <div class="c-2"></div>
+        </div>
+      </div>
+      <div class="house3">
+        <div class="h-1"></div>
+        <div class="h-2"></div>
+        <div class="h-3"></div>
+        <div class="h-43"></div>
+        <div class="h-53"></div>
+        <div class="h-6"></div>
+        <div class="rabbit">
+          <div class="r-1"></div>
+          <div class="r-2"></div>
+        </div>
+      </div>
+      <div class="txt1">同方锦城</div>
+      <div class="txt2">A区</div>
+      <div class="jw"></div>
+      <div class="jd"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>
