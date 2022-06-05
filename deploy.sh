@@ -1,0 +1,1 @@
+rsync -av hs ubuntu@wangzm.cn:/var/www/html/

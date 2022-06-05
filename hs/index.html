@@ -19,7 +19,6 @@
 
   <link href="apple-touch-startup-image-640x960.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image">
-  <!-- <link href="logo_114x114.png" rel="apple-touch-icon-precomposed"> -->
   <link href="logo_114x114.png" rel="apple-touch-icon">
 
   <style>
@@ -28,11 +27,13 @@
       width: 100%;
       margin: 0;
       padding: 0;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     .bg {
       width: 100%;
-      /* position: fixed; */
     }
 
     .head {
@@ -51,10 +52,8 @@
       flex-direction: column;
       align-items: center;
       background: rgba(222, 200, 150, 1);
-      /* overflow-y: hidden; */
       padding: 0 0 2vh 0;
       -webkit-overflow-scrolling: touch;
-      /* position: fixed; */
     }
 
     .main {
@@ -86,16 +85,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 12vh;
-      width: 12vh;
+      height: 10vh;
+      width: 10vh;
       background-color: #fff;
       text-shadow: -1px -1px 1px #000;
-    }
-
-    .pic-111 {
-      background: url('pic-1.png') center center/100% no-repeat;
-      height: 12vh;
-      width: 12vw;
     }
 
     .my-name {
@@ -139,27 +132,46 @@
     .address {
       background-color: rgba(246, 242, 241, 1);
       border-radius: 10px;
-      width: 80vw;
-      text-align: center;
-      padding: 1vh;
+      width: 90%;
     }
 
-    .address-1 {
-      font-weight: bold;
-      color: rgba(138, 95, 76, 1);
-      height: 4.0vh;
-      line-height: 4.0vh;
-      font-size: 2.8vh;
-      white-space: nowrap;
+    .address-container {
+      padding: 0rem;
+      display: inline-block;
+      border: nome;
     }
 
-    .address-2 {
+    .address-text1 {
       color: rgba(138, 95, 76, 1);
-      height: 8vh;
+      background-color: rgba(246, 242, 241, 0);
+      resize: none;
+      border: none;
+      outline: none;
+      width: 95%;
       line-height: 4vh;
       font-size: 2.5vh;
+      text-align: center;
       padding: 0 1vh 0 1vh;
       margin-top: 0.6vh;
+      word-break: break-all;
+      overflow: hidden;
+      font-weight: bold;
+    }
+
+    .address-text2 {
+      color: rgba(138, 95, 76, 1);
+      background-color: rgba(246, 242, 241, 0);
+      resize: none;
+      border: none;
+      outline: none;
+      width: 95%;
+      line-height: 4vh;
+      font-size: 2.5vh;
+      text-align: center;
+      padding: 0 1vh 0 1vh;
+      margin-top: 0.6vh;
+      word-break: break-all;
+      overflow: hidden;
     }
 
     .result {
@@ -176,7 +188,7 @@
       height: 10vh;
       line-height: 10vh;
       font-size: 6vh;
-      color: RGBA(123, 98, 252, 1);
+      color: rgba(123, 98, 252, 1);
       margin-right: 2vw;
     }
 
@@ -202,7 +214,7 @@
         <div class="top"></div>
         <div class="pic-1">
           <div class="pic-11">
-            <div class="pic-111"></div>
+            <img id="head-logo" src="pic-1-1.png" width="100%" height="100%" />
           </div>
         </div>
         <div class="my-name">
@@ -216,13 +228,11 @@
         <div class="QR-code">
         </div>
         <div class="address">
-          <!-- <div class="address-1">同方锦城</div>
-          <div class="address-2">上海市/浦东新区/沪东街道/长岛路625弄</div> -->
-          <div class="address-1">上海福满家便利有限公司博兴路三店</div>
-          <div class="address-2">上海市/浦东新区/沪东新村街道/博兴路636号一层</div>
+          <textarea id="address1" class="address-text1" rows="1">上海福满家便利有限公司博兴路三店</textarea>
+          <textarea id="address2" class="address-text2">上海市/浦东新区/沪东新村街道/博兴路636号一层</textarea>
         </div>
         <div class="result">
-          <div class="day">48</div>
+          <div id="day" class="day">48</div>
           <div>小时内核酸检测结果</div>
           <div class="green">【阴性】</div>
         </div>
@@ -254,6 +264,53 @@
   }
   update();
   setInterval(update, 1000);
+</script>
+
+<script>
+  let index = 0;
+  const address = [
+    ["同方锦城", "上海市/浦东新区/沪东新村街道/长岛路625弄"],
+    ["上海福满家便利有限公司博兴路三店", "上海市/浦东新区/沪东新村街道/博兴路636号一层"],
+    ["香优满烟酒店", "上海市/浦东新区/沪东新村街道/博兴路648号一层"],
+    ["6号线博兴路站", "上海市/浦东新区/浦兴路街道/张杨北路662号"],
+  ];
+  let address1 = document.getElementById('address1');
+  let address2 = document.getElementById('address2');
+
+  function updateTextarea(e) {
+    fixHeight(e.target);
+  }
+
+  function fixHeight(textarea) {
+    textarea.style.height = "auto";
+    textarea.scrollTop = 0;
+    textarea.style.height = textarea.scrollHeight + 'px'
+  }
+
+  function updateAddress() {
+    index = index < address.length ? index : 0;
+    address1.innerHTML = address[index][0];
+    address2.innerHTML = address[index++][1];
+    fixHeight(address1);
+    fixHeight(address2);
+  }
+
+  document.getElementById('day').addEventListener('click', updateAddress);
+  address1.addEventListener('input', updateTextarea);
+  address2.addEventListener('input', updateTextarea);
+  fixHeight(address1);
+  fixHeight(address2);
+</script>
+
+<script>
+  // 换头像
+  let i = 0;
+  const heads = ["pic-1-1.png", "pic-1-2.png"];
+  let head = document.getElementById('head-logo');
+  head.addEventListener('click', () => {
+    i = i < heads.length ? i : 0;
+    head.src = heads[i++];
+  });
 </script>
 
 </html>
