@@ -22,7 +22,10 @@
   <link href="logo_114x114.png" rel="apple-touch-icon">
 
   <style>
+    html,
     body {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-text-size-adjust: 100%;
       height: 100%;
       width: 100%;
       margin: 0;
@@ -30,6 +33,12 @@
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       user-select: none;
+    }
+
+    input,
+    textarea {
+      border: 0;
+      -webkit-appearance: none;
     }
 
     .bg {
@@ -281,12 +290,14 @@
     fixHeight(e.target);
   }
 
+  // 更新地址textarea行高
   function fixHeight(textarea) {
     textarea.style.height = "auto";
     textarea.scrollTop = 0;
     textarea.style.height = textarea.scrollHeight + 'px'
   }
 
+  // 更新地址
   function updateAddress() {
     index = index < address.length ? index : 0;
     address1.innerHTML = address[index][0];
@@ -312,5 +323,6 @@
     head.src = heads[i++];
   });
 </script>
+
 
 </html>
