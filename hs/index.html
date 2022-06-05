@@ -142,12 +142,10 @@
       background-color: rgba(246, 242, 241, 1);
       border-radius: 10px;
       width: 90%;
-    }
-
-    .address-container {
-      padding: 0rem;
-      display: inline-block;
-      border: nome;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .address-text1 {
@@ -161,7 +159,7 @@
       font-size: 2.5vh;
       text-align: center;
       padding: 0 1vh 0 1vh;
-      margin-top: 0.6vh;
+      margin-top: 1vh;
       word-break: break-all;
       overflow: hidden;
       font-weight: bold;
@@ -178,7 +176,7 @@
       font-size: 2.5vh;
       text-align: center;
       padding: 0 1vh 0 1vh;
-      margin-top: 0.6vh;
+      margin-top: 1vh;
       word-break: break-all;
       overflow: hidden;
     }
@@ -197,8 +195,9 @@
       height: 10vh;
       line-height: 10vh;
       font-size: 6vh;
-      color: rgba(123, 98, 252, 1);
+      color: rgba(31, 190, 105, 1);
       margin-right: 2vw;
+      font-weight: bold;
     }
 
     .green {
@@ -241,7 +240,7 @@
           <textarea id="address2" class="address-text2">上海市/浦东新区/沪东新村街道/博兴路636号一层</textarea>
         </div>
         <div class="result">
-          <div id="day" class="day">48</div>
+          <div id="day" class="day">24</div>
           <div>小时内核酸检测结果</div>
           <div class="green">【阴性】</div>
         </div>
